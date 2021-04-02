@@ -1,12 +1,12 @@
 
 <html>
-<head lang="zh">
+  <head lang="zh">
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
         <meta content="yes" name="apple-mobile-web-app-capable"/>
         <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
         <meta content="telephone=no" name="format-detection"/>
         <meta name="renderer" content="webkit">
-    <title>大愚乌托邦</title>
+    <title>深度优先，还是 广度优先？ | 大愚乌托邦</title>
 <link href="https://fqd511.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="https://fqd511.github.io/media/scripts/jquery.js"></script>
 <script type="text/javascript" src="https://fqd511.github.io/media/scripts/basic.js"></script>
@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <div class="header">
+     <div class="header">
       <div class="logo_title">
 		  
         <div class="title animated fadeInDown"><img src="https://fqd511.github.io/images/avatar.png?v=1617374246707"/>
@@ -126,6 +126,7 @@
     <div class="main">
       <div class="main-inner">
 
+
 <div class="content">
 
 
@@ -133,27 +134,31 @@
 
 
 
-  <div class="post_list" >
+  <div class="post_page" >
 
-	
 <div class="post">
-  <div class="post_title weaklink">
-    <h2><a href="https://fqd511.github.io/post/hello-gridea/" >Hello Gridea</a>
+  <div class="post_title sm_margin">
+    <h2><a>深度优先，还是 广度优先？</a>
+
+
+
     </h2>
   </div>
-  <div class="post_content markdown"><div class="p_part"><p><p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-</p></div></div>
-  <div class="post_footer">
-    <div class="info weaklink"><i class="fa fa-clock-o"></i>
-<span class="date_info">2018-12-12</span>
+
+  <div class="post_details">
+    <div class="info"><i class="fa fa-clock-o"></i>
+<span class="date_info">2021-03-20</span>
+<i class="fa fa-eye"></i>
+
+<span class="date_info"><span id="busuanzi_value_page_pv"></span> Views</span>
+
 
 <i class="fa fa-bookmark-o"></i>
-	
 <span class="tags_info weaklink">
 	
-	<a href="https://fqd511.github.io/tag/Rvc-Hzm58/" class="tag">Gridea</a>
+	<a href="https://fqd511.github.io/tag/t9KJWfjMT/" class="tag">思考</a>
 
+	<a href="https://fqd511.github.io/tag/llAGm1viLk/" class="tag">观点</a>
 
 
 </span>
@@ -163,20 +168,57 @@
 
   </div>
 
+
+
+
+
+  <div class="post_content markdown"><p class="md_block">
+    <span class="md_line md_line_start md_line_end"><p>“深度优先”和“广度优先”是遍历树/图中的算法名词，本文借用这两个概念，来表达对学习方法的个人看法。</p>
+<!-- more -->
+<p>前两天参加一场面试，面到后面是对方小组 leader 来跟我聊。技术问题一个没问，刚听我讲完基本履历就开始发表人生建议：</p>
+<p>“你觉得你的职业选择和方向是对还是错？”、“我先说说我的看法，你别生气”、“我觉得你的选择完全都是错的”、“你要先在一个领域达到一定高度，比如三年，然后再考虑更多的方向”、“你看看你那些去了大厂的同学，现在是不是优秀得多了”、“你看看你过去这些经历，烂团队、烂产品”、“我说他们烂你没意见吧？不烂也不会死”、“这些项目你都不用讲了，我也不想听”……</p>
+<p>议论刚发完也没想听听我反馈，实际上我还没反应过来，面试就结束了。他强烈的个人价值观输出加上面试情境下双方不对等的交流地位，一时之间带给我很大的冲击，一直到晚上睡觉前我都还有点耿耿于怀，感觉有点像小时候跟人吵架输了之后觉得自己没发挥好，心底里酝酿着自己一条一条的反驳陈词。</p>
+<p>不过这种反思也带给我一个更加深刻的认识自己的机会，冷静下来想想：我要的是什么？我选择的真的是我想要的吗？</p>
+<p>其实我的部分观念和那位面试官的观点或者说普世意义上的技术观念还是一致的，比如说从事某项技术必须要先达到一定深度才能考虑更多的发展方向，不同的是每个人对于深度的理解是不一样的。</p>
+<p>我上学时候语文课本里讲到诸葛亮年轻时和友人游学，“众人皆务于精熟，而亮独观其大略”，这句话一直影响着我，工作后看了阮一峰老师的书和博客（这里主要指阮博士的<a href="https://www.ruanyifeng.com/survivor/index.html">《未来世界的幸存者》</a> 和<a href="https://www.ruanyifeng.com/road/">《前方的路》</a>两本书，以及每周的科技爱好者周刊）,越发让我对很多技术的细节保持更加谨慎的态度，新的技术是层出不穷的，尤其我所在的前端领域，如果花费大量的时间执着于<code>API</code>的细节，那编程这件事就变得毫无意义可言，但是面试和开发工作又需要面技术的熟悉，所以二者之间的平衡是一个需要把握的状态。既要对常用的重要的技术比较熟悉，又不能吹毛求疵，不强求脱离文档手写代码。我不追求背下成篇成篇的<code>API</code>细节，</p>
+</p>
+
+     <p class="md_block">
+    <div class="reward"><div class="reward-button">赏 <span class="reward-code"> <span class="alipay-code"> <img class="alipay-img" src="https://fqd511.github.io/media/images/alipay.png"><b>支付宝扫码打赏</b> </span> <span class="wechat-code"> <img class="wechat-img" src="https://fqd511.github.io/media/images/wechat.png"><b>微信打赏</b> </span> </span></div></div>
+</p> 
 </div>
-	
-	
 
-<div class="paginator pager pagination" >
-	
+</div>
 
 
 
-    <div style="clear:both;height:0;"></div>
+<link href="https://fqd511.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
 
+<div class="doc_comments">
 
-  </div>
+          
+			  
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
 
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'fanqidi',
+  apikey: 'vdCvDSoWxt5KJRQ4pwgAyqdJAl5CVxbSx8t3ytzmBrrWmoNel4gfW3G15AQoioX0',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
 </div>
 
 
@@ -188,9 +230,12 @@
 
       </div>
 
+
+
+
     </div>
 
-    <div class="footer">
+   <div class="footer">
 <link href="https://fqd511.github.io/styles/main.css" type="text/css" rel="stylesheet"/><div class="site_footer_wrap"><div class="site_footer">
 
       <div class="mysocials"><div class="my_socials">

@@ -1,12 +1,12 @@
 
 <html>
-<head lang="zh">
+  <head lang="zh">
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
         <meta content="yes" name="apple-mobile-web-app-capable"/>
         <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
         <meta content="telephone=no" name="format-detection"/>
         <meta name="renderer" content="webkit">
-    <title>大愚乌托邦</title>
+    <title>一种数据驱动的 debug 思路 | 大愚乌托邦</title>
 <link href="https://fqd511.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="https://fqd511.github.io/media/scripts/jquery.js"></script>
 <script type="text/javascript" src="https://fqd511.github.io/media/scripts/basic.js"></script>
@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <div class="header">
+     <div class="header">
       <div class="logo_title">
 		  
         <div class="title animated fadeInDown"><img src="https://fqd511.github.io/images/avatar.png?v=1617374246707"/>
@@ -126,6 +126,7 @@
     <div class="main">
       <div class="main-inner">
 
+
 <div class="content">
 
 
@@ -133,27 +134,31 @@
 
 
 
-  <div class="post_list" >
+  <div class="post_page" >
 
-	
 <div class="post">
-  <div class="post_title weaklink">
-    <h2><a href="https://fqd511.github.io/post/hello-gridea/" >Hello Gridea</a>
+  <div class="post_title sm_margin">
+    <h2><a>一种数据驱动的 debug 思路</a>
+
+
+
     </h2>
   </div>
-  <div class="post_content markdown"><div class="p_part"><p><p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-</p></div></div>
-  <div class="post_footer">
-    <div class="info weaklink"><i class="fa fa-clock-o"></i>
-<span class="date_info">2018-12-12</span>
+
+  <div class="post_details">
+    <div class="info"><i class="fa fa-clock-o"></i>
+<span class="date_info">2021-03-22</span>
+<i class="fa fa-eye"></i>
+
+<span class="date_info"><span id="busuanzi_value_page_pv"></span> Views</span>
+
 
 <i class="fa fa-bookmark-o"></i>
-	
 <span class="tags_info weaklink">
 	
-	<a href="https://fqd511.github.io/tag/Rvc-Hzm58/" class="tag">Gridea</a>
+	<a href="https://fqd511.github.io/tag/UXBESFKH2/" class="tag">vue</a>
 
+	<a href="https://fqd511.github.io/tag/mt6FJiYFw/" class="tag">tech</a>
 
 
 </span>
@@ -163,20 +168,77 @@
 
   </div>
 
+
+
+
+
+  <div class="post_content markdown"><p class="md_block">
+    <span class="md_line md_line_start md_line_end"><p>有时候遇到bug，时间上来不及找到bug出现的原因，这时候从数据驱动的角度出发，也许能另辟蹊径。</p>
+<!-- more -->
+<p>今天在项目中使用<code>element-plus</code>的<code>el-dialog</code>组件时遇到一个奇怪的问题：同一个对话框打开第二次之后就无法关闭了。没有任何报错，检查<code>v-model</code>的绑定值变化也是正常的，这就很奇怪了。</p>
+<p>按照惯例，使用这种开源组件库，尤其是<code>element-plus</code>的版本还没稳定下来的，先到<code>issue</code>里搜一搜，看看有没有人踩过坑的。结果发现一个描述接近的<code>issue</code>，但是因为复现步骤描述不够详细，还没解决就被关闭了，翻<code>issue</code>这条路走不通。</p>
+<p>重新梳理一下遇到这种与预期不符的问题的解决思路：</p>
+<ul>
+<li>80%的情况是自己的业务代码逻辑出错了，好好检查变量传递、方法触发、边界情况等问题——已排除；</li>
+<li>看看官方库的<code>issue</code>——已排除；</li>
+<li>根据报错信息定位源码，测试看看——无报错；</li>
+</ul>
+<p>一般情况下上面的三条思路能够解决绝大部分开发过程中的bug，但这次不行，这时候还有另一条思路。鉴于<code>vue</code>的设计思想是数据驱动，因此所有的异常都能在数据中找到蛛丝马迹。</p>
+<p>话不多说，打开<code>vue-devtool</code>，选中出现异常的<code>el-dialog</code>组件，复现出错步骤，仔细观察，不难发现：</p>
+<ul>
+<li><code>el-dialog</code>组件中：
+<ul>
+<li><code>props</code>中的<code>modelValue</code>（<code>Boolean</code>）</li>
+<li><code>setup</code>中<code>Ref</code>变量<code>rendered</code>（<code>Boolean</code>）</li>
+<li><code>setup</code>中<code>Ref</code>变量<code>visible</code>（<code>Boolean</code>）</li>
+<li><code>setup</code>中<code>Ref</code>变量<code>zIndex</code>(数值每次打开时变大)</li>
+</ul>
+</li>
+</ul>
+<p>正常情况下，这四个变量会跟随每次<code>dialog</code>的显隐发生变化，其中前三个<code>Boolean</code>类型变量与<code>dialog</code>的显隐状态保持一致，最后一个会递增；</p>
+<p>当错误发生时，第二个变量（<code>setup</code>中<code>Ref</code>变量<code>rendered</code>）在<code>dialog</code>关闭后没有由<code>true</code>转<code>false</code>，问题可能出现在这里，于是在对应的调用处用<code>ref</code>引用<code>el-dialog</code>组件，在每次关闭对话框时手动将<code>ref.rendered</code>置否，测试通过，问题解决~</p>
+<hr>
+<h3 id="总结">总结</h3>
+<p>出错的真正原因其实并没有找到，只能算是找到了症状，严格意义上讲问题并没有解决，但是和很多生物医学领域的作法一样，能找到症状就能先治病，人救下来是最重要的。</p>
+<p>后续还要跟进官方库的进度，看看后续版本还有没有类似问题，不排除时间充裕了再翻翻源码看看造成这个的真正原因是什么。</p>
+</p>
+
+     <p class="md_block">
+    <div class="reward"><div class="reward-button">赏 <span class="reward-code"> <span class="alipay-code"> <img class="alipay-img" src="https://fqd511.github.io/media/images/alipay.png"><b>支付宝扫码打赏</b> </span> <span class="wechat-code"> <img class="wechat-img" src="https://fqd511.github.io/media/images/wechat.png"><b>微信打赏</b> </span> </span></div></div>
+</p> 
 </div>
-	
-	
 
-<div class="paginator pager pagination" >
-	
+</div>
 
 
 
-    <div style="clear:both;height:0;"></div>
+<link href="https://fqd511.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
 
+<div class="doc_comments">
 
-  </div>
+          
+			  
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
 
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'fanqidi',
+  apikey: 'vdCvDSoWxt5KJRQ4pwgAyqdJAl5CVxbSx8t3ytzmBrrWmoNel4gfW3G15AQoioX0',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
 </div>
 
 
@@ -188,9 +250,12 @@
 
       </div>
 
+
+
+
     </div>
 
-    <div class="footer">
+   <div class="footer">
 <link href="https://fqd511.github.io/styles/main.css" type="text/css" rel="stylesheet"/><div class="site_footer_wrap"><div class="site_footer">
 
       <div class="mysocials"><div class="my_socials">
