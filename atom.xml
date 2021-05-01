@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://fqd511.github.io</id>
     <title>大愚乌托邦</title>
-    <updated>2021-04-02T15:33:47.376Z</updated>
+    <updated>2021-05-01T07:24:52.702Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://fqd511.github.io"/>
     <link rel="self" href="https://fqd511.github.io/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://fqd511.github.io/images/avatar.png</logo>
     <icon>https://fqd511.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 大愚乌托邦</rights>
+    <entry>
+        <title type="html"><![CDATA[React 项目的打包优化]]></title>
+        <id>https://fqd511.github.io/post/cra-accelerate/</id>
+        <link href="https://fqd511.github.io/post/cra-accelerate/">
+        </link>
+        <updated>2021-05-01T05:51:49.000Z</updated>
+        <summary type="html"><![CDATA[<p>本文介绍基于 <code>create-react-app</code>的 <code>react</code>项目的编译优化经验，成功将编译打包时间由 <code>2 min 20 s</code> 左右降低至 <code>1 min 20 s</code> 左右</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>本文介绍基于 <code>create-react-app</code>的 <code>react</code>项目的编译优化经验，成功将编译打包时间由 <code>2 min 20 s</code> 左右降低至 <code>1 min 20 s</code> 左右</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[一种数据驱动的 debug 思路]]></title>
         <id>https://fqd511.github.io/post/nxryld17R/</id>
