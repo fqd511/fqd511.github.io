@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>大愚乌托邦</title>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="icon" href="di_6.ico" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<div id="app" class="content">
+  <section class="top-part" :style="backgroundStyle">
+    <p class="quote-label">{{quote.content}}</p>
+    <p class="quote-author">——{{quote.author}}</p>
+    <input type="text" class="search" />
+  </section>
+  <section class="down-part">
+    <div class="item-area">
+      <a class="item"
+         v-for="item in items"
+         :href="'https://'+item.id+'.fanqidi.com'"
+         :key="item.id">
+        <img :src="'assets/'+item.id+'.png'" :alt="item.id">
+        <span class="title">{{item.title}}</span>
+        <span class="desc" v-html="item.desc"></span>
+      </a>
+    </div>
+
+    <div class="foot">
+      <form action="https://tinyletter.com/511"
+            method="post"
+            target="popupwindow"
+            onsubmit="window.open('https://tinyletter.com/511', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <input type="text" style="width:140px" name="email" id="tlemail" />
+        <input type="hidden" value="1" name="embed" />
+        <input type="submit" value="Subscribe" />
+      </form>
+      <a>{{foot.label}}</a>
+    </div>
+  </section>
+</div>
+<script src="index.js" type="module"></script>
+</body>
+
+</html>
