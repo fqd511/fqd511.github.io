@@ -9,14 +9,14 @@ set -e
 # 进入生成的文件夹
 # cd docs/.vuepress/dist
 
-cd src
+cd dist
 echo 'www.fanqidi.com' > CNAME
 git init
 git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io
-git push -f https://github.com/fanqidi/fanqidi.github.io.git master
+git push -f https://github.com/fqd511/fqd511.github.io.git gh-pages
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
