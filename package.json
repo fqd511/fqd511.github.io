@@ -1,0 +1,22 @@
+{
+  "name": "vebsite",
+  "version": "1.0.0",
+  "description": "--- website of van",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fqd511/vebsite.git"
+  },
+  "author": "511",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fqd511/vebsite/issues"
+  },
+  "homepage": "https://github.com/fqd511/vebsite#readme",
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  }
+}
