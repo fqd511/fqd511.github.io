@@ -44,10 +44,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px;
+  padding: 10vw;
+  flex-flow: column;
 }
 .item {
-  margin: 2em;
+  margin: 15px;
 }
 
 @media screen and (min-width: 990px) {
