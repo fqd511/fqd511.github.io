@@ -1,0 +1,27 @@
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html.dark {
+  background: #121212;
+}
+
+*:focus {
+  outline: $primary_color solid 2px;
+  outline-offset: -2px;
+}
+
+[class*="i-"] {
+  cursor: pointer;
+  color: currentColor;
+}
+figure {
+  margin-block-start: 12px !important;
+  margin-block-end: 12px !important;
+  margin-inline-start: 12px !important;
+  margin-inline-end: 12px !important;
+}

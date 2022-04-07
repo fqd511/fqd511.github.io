@@ -2,8 +2,6 @@
 ---
 website of van
 
-
-
 ### version log
 ---
 
@@ -14,11 +12,12 @@ website of van
 
 #### v0.0.2
 - 移动端适配
-- 邮件订阅（tinyletter）
+- 邮件订阅（tiny letter）
 ---
 
 ### todo
 
+- [ ] double shift to call out input
 - [x] subpage list
   - [x] thumbnail card
   
@@ -38,5 +37,5 @@ website of van
   - [ ] download 列表
 
 - [ ] resume subpage
-  - [ ] mobile frist
-  - [ ] subpage one hide true identity, downloadlist one show identity
+  - [ ] mobile first
+  - [ ] subpage one hide true identity, download list one show identity
