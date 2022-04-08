@@ -12,7 +12,7 @@ on:
 
 jobs:
   setup:
-    name: setup envrioment
+    name: setup envrioment and build
     runs-on: ubuntu-latest
 
     strategy:
@@ -35,12 +35,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
           cache: "pnpm"
 
-  build:
-    name: run build
-    needs: setup
-    runs-on: ubuntu-latest
-
-    steps:
       - name: install
         run: pnpm install
 
