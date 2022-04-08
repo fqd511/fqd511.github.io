@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@iconify-json/eos-icons': ^1.1.1
   '@iconify-json/ic': ^1.1.2
   '@intlify/vite-plugin-vue-i18n': ^3.3.1
   '@types/markdown-it-link-attributes': ^3.0.1
@@ -37,6 +38,7 @@ dependencies:
   vue-router: registry.npmmirror.com/vue-router/4.0.14_vue@3.2.31
 
 devDependencies:
+  '@iconify-json/eos-icons': registry.npmmirror.com/@iconify-json/eos-icons/1.1.1
   '@iconify-json/ic': registry.npmmirror.com/@iconify-json/ic/1.1.2
   '@intlify/vite-plugin-vue-i18n': registry.npmmirror.com/@intlify/vite-plugin-vue-i18n/3.3.1_vite@2.8.6+vue-i18n@9.1.9
   '@types/markdown-it-link-attributes': registry.npmmirror.com/@types/markdown-it-link-attributes/3.0.1
@@ -127,6 +129,14 @@ packages:
     version: 1.0.0
     dev: true
 
+  registry.npmmirror.com/@iconify-json/eos-icons/1.1.1:
+    resolution: {integrity: sha512-Dl9EPS6c2BDbY9lpkSibNLRIchdFjijFg6ZSpKf8WQO7ii7Jh6m6XnH0bHEv871WSG8BzV/U3McQYYi2MiRUXw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify-json/eos-icons/-/eos-icons-1.1.1.tgz}
+    name: '@iconify-json/eos-icons'
+    version: 1.1.1
+    dependencies:
+      '@iconify/types': registry.npmmirror.com/@iconify/types/1.1.0
+    dev: true
+
   registry.npmmirror.com/@iconify-json/ic/1.1.2:
     resolution: {integrity: sha512-OXLXNMECrwg1N7HqG9z+p8eF9NleoV5tZvIH/W3ip3HdZsg1VbEWl0RpI9K5VJjT95xVn2n+gcAgLPD5HNAsXg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify-json/ic/-/ic-1.1.2.tgz}
     name: '@iconify-json/ic'
@@ -156,11 +166,11 @@ packages:
       - supports-color
     dev: true
 
-  registry.npmmirror.com/@intlify/bundle-utils/2.2.1_vue-i18n@9.1.9:
-    resolution: {integrity: sha512-8n8zhYEKypS+KP22KUAC6BnQifJDDWUGcn3OVPqsThqMMucU22MShGvOuiKqQ4AeT7XQ5O4pudlJmxv3L91JrQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@intlify/bundle-utils/-/bundle-utils-2.2.1.tgz}
-    id: registry.npmmirror.com/@intlify/bundle-utils/2.2.1
+  registry.npmmirror.com/@intlify/bundle-utils/3.0.0_vue-i18n@9.1.9:
+    resolution: {integrity: sha512-y43Z5Q3ZJvxqtD8xUH6U3yrlZeay7ZTqkzv1GQ4b0mGQtk5uptOT9Ra4qvGuUv8QyPQsortrA/OHWUD5ax5ZNQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@intlify/bundle-utils/-/bundle-utils-3.0.0.tgz}
+    id: registry.npmmirror.com/@intlify/bundle-utils/3.0.0
     name: '@intlify/bundle-utils'
-    version: 2.2.1
+    version: 3.0.0
     engines: {node: '>= 12'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -271,7 +281,7 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/bundle-utils': registry.npmmirror.com/@intlify/bundle-utils/2.2.1_vue-i18n@9.1.9
+      '@intlify/bundle-utils': registry.npmmirror.com/@intlify/bundle-utils/3.0.0_vue-i18n@9.1.9
       '@intlify/shared': registry.npmmirror.com/@intlify/shared/9.2.0-beta.34
       '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils/4.2.0
       debug: registry.npmmirror.com/debug/4.3.4
