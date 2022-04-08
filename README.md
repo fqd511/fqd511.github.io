@@ -1,18 +1,26 @@
 ## Vebsite
+
 ---
+
+![Github Action Build](https://github.com/fqd511/fqd511.github.io/workflows/build/badge.svg?branch=main)
 website of van
 
 ### version log
+
 ---
 
 #### v0.0.1
+
 - 子域名介绍与跳转
 - 下载链接隐藏功能
+
 ---
 
 #### v0.0.2
+
 - 移动端适配
 - 邮件订阅（tiny letter）
+
 ---
 
 ### todo
@@ -20,7 +28,6 @@ website of van
 - [ ] double shift to call out input
 - [x] subpage list
   - [x] thumbnail card
-  
 - [ ] download list
 
   - [ ] 输入特定字符串显示下拉框
@@ -32,6 +39,7 @@ website of van
   - [ ] 英文字体
 
 - [ ] 数据文件抽离
+
   - [ ] thumbnail api 提供商列表
   - [x] Subpage 列表
   - [ ] download 列表
