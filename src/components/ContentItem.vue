@@ -3,6 +3,7 @@
     class="block relative shadow-md hover:shadow-lg transition rounded-lg gap-2 p-4 h-32 w-72 flex items-stretch no-underline text-gray-900 dark:text-gray-200"
     :href="item?.link || undefined"
     target="_blank"
+    @click="onClick"
   >
     <div
       :style="{
@@ -40,4 +41,29 @@ const { item } = defineProps<{
 
 const { locale } = useI18n();
 const isEn = computed(() => locale.value === "en");
+
+/**
+ * intercept click to trigger re-deploy
+ * @param e
+ */
+const onClick = (e: PointerEvent) => {
+  // if ctrl+click || meta+click, invoke deploy hook
+  if (e.metaKey || e.ctrlKey) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!item.deploy_hook) {
+      alert("There is no deploy hook binding to this one!");
+    } else {
+      fetch(item.deploy_hook)
+        .then((res) => {
+          alert(`Successfully deployed ${item.id}!`);
+          console.dir(res);
+        })
+        .catch((err) => {
+          alert(`Failed to deploy ${item.id}!`);
+          console.error(err);
+        });
+    }
+  }
+};
 </script>
