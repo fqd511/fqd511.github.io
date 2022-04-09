@@ -35,6 +35,11 @@ jobs:
 
       - name: build
         run: pnpm build
+        
+      - name: creat cname
+        run: |
+          touch docs/CNAME 
+          echo "www.fanqidi.com" > docs/CNAME
 
       - name: Publish docs to gh-pages
         uses: rayluo/github-pages-overwriter@v1.2
