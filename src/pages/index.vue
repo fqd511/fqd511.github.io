@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col p-x-4 overflow-y-auto overflow-x-hidden flex-grow items-center"
+    class="flex no-scroll-bar flex-col p-x-4 overflow-y-auto overflow-x-hidden flex-grow items-center"
   >
     <Quote class="flex-grow flex-shrink" />
     <Loading :loading="loadingCMS" class="flex-grow">

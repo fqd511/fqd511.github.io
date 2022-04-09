@@ -1,6 +1,6 @@
 <template>
   <div
-    class="scroll-wrapper overflow-auto container flex-grow flex flex-wrap sm:w-88 sm:gap-4 md:w-176 gap-6 py-6 justify-start mx-auto max-w-3xl content"
+    class="no-scroll-bar overflow-auto container flex-grow flex flex-wrap sm:w-88 sm:gap-4 md:w-176 gap-6 py-6 justify-start mx-auto max-w-3xl content"
   >
     <ContentItem
       v-for="item in store.itemList"
@@ -17,13 +17,3 @@ import ContentItem from "~/components/ContentItem.vue";
 
 const store = useStore();
 </script>
-<style lang="scss" scoped>
-.scroll-wrapper {
-  height: calc(100vh - 12rem);
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-</style>
