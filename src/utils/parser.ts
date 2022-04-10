@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { IContentItem, TagEnum } from "~/model/type";
 
 export function parserContent(raw: any[]): IContentItem[] {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineStore } from "pinia";
 import { db } from "~/model";
 import { parserContent, request } from "~/utils";
@@ -14,7 +15,7 @@ export const getContent = isMock
 export const useStore = defineStore("store", {
   state: () => ({
     loadingCMS: 1 as number,
-    rawContent: [] as any[],
+    rawContent: [] as unknown[],
     showAll: false,
   }),
   getters: {

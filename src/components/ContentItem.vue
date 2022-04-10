@@ -22,9 +22,9 @@
       >
     </div>
     <div
-      class="text-white text-xs absolute rounded right-2 bottom-2 py-0.5 px-1"
       v-for="tag in item.tags"
       :key="tag.id"
+      class="text-white text-xs absolute rounded right-2 bottom-2 py-0.5 px-1"
       :style="{ 'background-color': tag.color }"
     >
       {{ tag.label }}
@@ -35,7 +35,7 @@
 <script lang="ts" setup>
 import { IContentItem } from "~/model/type";
 
-const { item } = defineProps<{
+const props = defineProps<{
   item: IContentItem;
 }>();
 
@@ -46,21 +46,21 @@ const isEn = computed(() => locale.value === "en");
  * intercept click to trigger re-deploy
  * @param e
  */
-const onClick = (e: PointerEvent) => {
+const onClick = (e: PointerEvent | MouseEvent) => {
   // if ctrl+click || meta+click, invoke deploy hook
   if (e.metaKey || e.ctrlKey) {
     e.preventDefault();
     e.stopPropagation();
-    if (!item.deployHook) {
+    if (!props.item.deployHook) {
       alert("There is no deploy hook binding to this one!");
     } else {
-      fetch(item.deployHook)
+      fetch(props.item.deployHook)
         .then((res) => {
-          alert(`Successfully deployed ${item.id}!`);
+          alert(`Successfully deployed ${props.item.id}!`);
           console.dir(res);
         })
         .catch((err) => {
-          alert(`Failed to deploy ${item.id}!`);
+          alert(`Failed to deploy ${props.item.id}!`);
           console.error(err);
         });
     }
