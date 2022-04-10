@@ -22,7 +22,7 @@
     "lint:fix": "npm run lint:fix-script && npm run lint:fix-style",
     "lint:fix-script": "eslint --fix --cache --ext .js,.ts,.vue ./src",
     "lint:fix-style": "stylelint --fix \"src/**/*.scss\"",
-    "prettier": "prettier -c --write \"**/*\"",
+    "lint:fix-prettier": "prettier -c --write \"**/*\"",
     "prepare": "husky install"
   },
   "dependencies": {
