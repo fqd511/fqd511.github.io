@@ -1,4 +1,4 @@
-import { integration_id } from "~/model";
+import {INTEGRATION_ID} from "~/model";
 
 const commonOptions = {
   method: "POST",
@@ -6,7 +6,7 @@ const commonOptions = {
     Accept: "application/json",
     "Content-Type": "application/json",
     "Notion-Version": "2022-02-22",
-    Authorization: `Bearer ${integration_id}`,
+    Authorization: `Bearer ${INTEGRATION_ID}`,
   },
 };
 
@@ -18,16 +18,16 @@ function getOption({
   param?: Record<string, unknown>;
 }) {
   return param
-    ? Object.assign(
-        {},
-        { ...commonOptions, method },
-        { body: JSON.stringify(param) }
-      )
+    ? {
+        ...commonOptions,
+        method,
+        body: JSON.stringify(param),
+      }
     : { ...commonOptions, method };
 }
 
 export function request(
-  db_id: string,
+  DB_ID: string,
   param?: Record<string, unknown>
 ): () => Promise<any[]> {
   const prefix =
@@ -35,15 +35,14 @@ export function request(
       ? "https://proxy.fanqidi.com/notion/v1"
       : "";
   return () =>
-    fetch(`${prefix}/databases/${db_id}/query`, getOption({ param }))
+    fetch(`${prefix}/databases/${DB_ID}/query`, getOption({ param }))
       .then((response) => response.json())
       .then((res: any) => {
         if (res.has_more) {
-          return request(db_id, { start_cursor: res.next_cursor })().then(
+          return request(DB_ID, { start_cursor: res.next_cursor })().then(
             (nest) => res.results.concat(nest)
           );
-        } else {
-          return res.results as any[];
         }
+        return res.results as any[];
       });
 }

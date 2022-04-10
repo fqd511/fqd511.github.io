@@ -2,15 +2,15 @@
 // We suggest you to commit this file into source control
 // Read more: https://github.com/vuejs/vue-next/pull/3399
 
-declare module 'vue' {
+declare module "vue" {
   export interface GlobalComponents {
-    Content: typeof import('./components/Content.vue')['default']
-    ContentItem: typeof import('./components/ContentItem.vue')['default']
-    Footer: typeof import('./components/Footer.vue')['default']
-    Loading: typeof import('./components/Loading.vue')['default']
-    Quote: typeof import('./components/Quote.vue')['default']
-    TopBar: typeof import('./components/TopBar.vue')['default']
+    Content: typeof import("./components/Content.vue")["default"];
+    ContentItem: typeof import("./components/ContentItem.vue")["default"];
+    Footer: typeof import("./components/Footer.vue")["default"];
+    Loading: typeof import("./components/Loading.vue")["default"];
+    Quote: typeof import("./components/Quote.vue")["default"];
+    TopBar: typeof import("./components/TopBar.vue")["default"];
   }
 }
 
-export { }
+export {};

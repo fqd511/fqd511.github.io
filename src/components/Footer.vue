@@ -23,6 +23,6 @@
 
 <style lang="scss" scoped>
 a:focus {
-  color: $primary_color;
+  color: $primary-color;
 }
 </style>

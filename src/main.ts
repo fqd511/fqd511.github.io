@@ -3,8 +3,8 @@ import "normalize.css";
 import messages from "@intlify/vite-plugin-vue-i18n/messages";
 import { createI18n } from "vue-i18n";
 import { createPinia } from "pinia";
-import Home from '~/pages/index.vue';
-import NotFound from '~/pages/404.vue';
+import Home from "~/pages/index.vue";
+import NotFound from "~/pages/404.vue";
 
 import "uno.css";
 import "~/style/common.scss";
@@ -24,7 +24,4 @@ const i18n = createI18n({
   messages,
 });
 
-createApp(App)
-  .use(i18n)
-  .use(createPinia()).use(router)
-  .mount("#app");
+createApp(App).use(i18n).use(createPinia()).use(router).mount("#app");

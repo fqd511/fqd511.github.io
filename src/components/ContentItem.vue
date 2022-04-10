@@ -7,18 +7,18 @@
   >
     <div
       :style="{
-        background: `center/contain no-repeat url(${item.thumbnail}),center/contain no-repeat url(${item.thumbnail_fallback})`,
+        background: `center/contain no-repeat url(${item.thumbnail}),center/contain no-repeat url(${item.thumbnailFallback})`,
       }"
       class="h-28 w-28 flex-shrink-0 flex-grow-0"
     ></div>
     <div class="flex flex-col items-start gap-2 p-1">
-      <span :title="isEn ? item.label_en : item.label_cn" class="font-bold">{{
-        isEn ? item.label_en : item.label_cn
+      <span :title="isEn ? item.labelEn : item.labelCn" class="font-bold">{{
+        isEn ? item.labelEn : item.labelCn
       }}</span>
       <span
-        :title="isEn ? item.desc_en : item.desc_cn"
+        :title="isEn ? item.descEn : item.descCn"
         class="text-opacity-80 text-xs truncate whitespace-normal"
-        >{{ isEn ? item.desc_en : item.desc_cn }}</span
+        >{{ isEn ? item.descEn : item.descCn }}</span
       >
     </div>
     <div
@@ -51,10 +51,10 @@ const onClick = (e: PointerEvent) => {
   if (e.metaKey || e.ctrlKey) {
     e.preventDefault();
     e.stopPropagation();
-    if (!item.deploy_hook) {
+    if (!item.deployHook) {
       alert("There is no deploy hook binding to this one!");
     } else {
-      fetch(item.deploy_hook)
+      fetch(item.deployHook)
         .then((res) => {
           alert(`Successfully deployed ${item.id}!`);
           console.dir(res);

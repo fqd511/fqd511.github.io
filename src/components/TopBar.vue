@@ -26,6 +26,6 @@ const toggleLocales = () => {
 </script>
 <style lang="scss" scoped>
 button:focus {
-  color: $primary_color;
+  color: $primary-color;
 }
 </style>

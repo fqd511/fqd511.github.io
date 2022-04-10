@@ -1,4 +1,4 @@
-export const integration_id =
+export const INTEGRATION_ID =
   "secret_wKSVucbZ67omQLXCGSQAROb1ZBPbkD3SnCCPYiPHLw2";
 
 export const db = {

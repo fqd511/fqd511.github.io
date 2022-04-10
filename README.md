@@ -13,6 +13,7 @@ Homepage of van, containing some of my works
   - [ ] 输入特定字符串显示下拉框
   - [ ] 根据输入字符判断权限区分显示
 - [x] Main area
+
   - [x] Finite and infinite game quote
   - [x] 英文字体
 
