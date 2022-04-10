@@ -1,4 +1,4 @@
-import {INTEGRATION_ID} from "~/model";
+import { INTEGRATION_ID } from "~/model";
 
 const commonOptions = {
   method: "POST",

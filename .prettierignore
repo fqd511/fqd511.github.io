@@ -1,0 +1,11 @@
+package.json
+/dist
+.DS_Store
+.eslintignore
+.gitignore
+.prettierignore
+.eslintcache
+package-lock.json
+tsconfig.json
+.idea
+.husky
