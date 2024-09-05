@@ -34,7 +34,7 @@ jobs:
         run: pnpm install
 
       - name: build
-        run: pnpm build
+        run: pnpm run build:server
         env:
           VITE_INTEGRATION_ID: ${{ secrets.VITE_INTEGRATION_ID }}
           VITE_DB: ${{ secrets.VITE_DB }}
