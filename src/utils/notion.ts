@@ -27,12 +27,11 @@ function getOption({
     : { ...commonOptions, method };
 }
 
+const prefix = import.meta.env.VITE_PROXY;
 export function request(
   DB_ID: string,
   param?: Record<string, unknown>
 ): () => Promise<any[]> {
-  const prefix =
-    process.env.NODE_ENV === "production" ? import.meta.env.VITE_PROXY : "";
   return () =>
     fetch(`${prefix}/databases/${DB_ID}/query`, getOption({ param }))
       .then((response) => response.json())
