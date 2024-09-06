@@ -34,11 +34,11 @@ jobs:
         run: pnpm install
 
       - name: build
-        run: pnpm run build:server
-        with:
+        env:
           VITE_INTEGRATION_ID: ${{ secrets.VITE_INTEGRATION_ID }}
           VITE_DB: ${{ secrets.VITE_DB }}
           VITE_PROXY: ${{ secrets.VITE_PROXY }}
+        run: pnpm run build:server
 
       - name: create cname
         run: |

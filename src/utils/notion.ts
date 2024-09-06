@@ -27,7 +27,7 @@ function getOption({
     : { ...commonOptions, method };
 }
 
-const prefix = import.meta.env.VITE_PROXY;
+const prefix = import.meta.env.VITE_PROXY||process?.env.VITE_PROXY||'localhost';
 export function request(
   DB_ID: string,
   param?: Record<string, unknown>
