@@ -10,6 +10,11 @@ on:
     branches:
       - main
 
+env:
+  VITE_INTEGRATION_ID: ${{ secrets.VITE_INTEGRATION_ID }}
+  VITE_DB: ${{ secrets.VITE_DB }}
+  VITE_PROXY: ${{ secrets.VITE_PROXY }}
+  
 jobs:
   setup:
     name: build & publish to gh-pages
@@ -34,10 +39,6 @@ jobs:
         run: pnpm install
 
       - name: build
-        env:
-          VITE_INTEGRATION_ID: ${{ secrets.VITE_INTEGRATION_ID }}
-          VITE_DB: ${{ secrets.VITE_DB }}
-          VITE_PROXY: ${{ secrets.VITE_PROXY }}
         run: pnpm run build:server
 
       - name: create cname
